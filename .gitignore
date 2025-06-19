@@ -1,0 +1,63 @@
+### BACKEND ###
+/backend/target/
+!backend/target/FinanceTrackerBackend-0.0.1-SNAPSHOT.jar
+/backend/.idea/
+/backend/*.iml
+/backend/.mvn
+/backend/mvnw
+/backend/mvnw.cmd
+/backend/logs/
+/backend/HELP.md
+
+### FRONTEND ###
+
+/frontend/node_modules/
+/frontend/.env
+/frontend/build/
+/frontend/dist/
+/frontend/.eslintcache
+/frontend/.parcel-cache
+/frontend/.turbo/
+/frontend/.vite
+
+### DOCKER / ENV ###
+
+.env
+docker-compose.override.yml
+docker-compose*.log
+
+### IDE ###
+.idea
+*iml
+*.log
+*.swp
+*.iws
+*.ipr
+
+### OS ###
+ehthumbs.db
+desktop.ini
+
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/

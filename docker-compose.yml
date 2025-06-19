@@ -1,0 +1,56 @@
+services:
+  mysql:
+    image: mysql:8.0
+    restart: always
+    container_name: mysql
+    environment:
+      MYSQL_DATABASE: financedb
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-ppassword"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build: ./backend
+    container_name: backend
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/financedb?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: password
+      TOKEN_SIGN_KEY: ${TOKEN_SIGN_KEY}
+    ports:
+      - "8080:8080"
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    container_name: phpmyadmin
+    depends_on:
+      - mysql
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: password
+
+  # frontend:
+  #   build: ./frontend
+  #   container_name: frontend
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - backend
+  #   environment:
+  #     API_URL: http://localhost:8080/api
+
+volumes:
+  db_data:
