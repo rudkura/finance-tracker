@@ -2,10 +2,10 @@
 
 Personal finance tracker backend - manage your expenses and income via a secure REST API.
 
-> 📦 Fullstack project (backend ready, frontend in progress)
-> 🐳 Dockerized with MySQL and phpMyAdmin
-> 🧪 Unit and integration tested (examples, in progress)
-> 📚 OpenAPI (Swagger) documentation available
+- 📦 Fullstack project (backend ready, frontend in progress)
+- 🐳 Dockerized with MySQL and phpMyAdmin
+- 🧪 Unit and integration tested (examples, in progress)
+- 📚 OpenAPI (Swagger) documentation available
 
 ---
 
